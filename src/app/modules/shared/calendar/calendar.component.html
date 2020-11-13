@@ -1,0 +1,27 @@
+
+
+<div id="scroller-wrapper" *ngIf="type == 'days'">
+    <div id="scroller">
+        <div class="elem" *ngFor="let key of objectKeys(days)">
+            <div class="keyRow">{{key}}</div>
+            <div class="blockHour" *ngFor="let h of days[key]" (click)="select(key,h.hour)">
+                <div class="dateLabel">
+                    {{h.hour}}
+                </div>
+                <div class="iconSelected" *ngIf="h.selected"></div>
+            </div>
+        </div>       
+     </div>
+</div>
+
+<div id="scroller-wrapper" *ngIf="type == 'default'">
+    <div id="scroller">
+        <div class="keyRow">|</div>
+        <div class="blockHour" *ngFor="let h of daysDefault" (click)="selectDefault(h.hour)">
+            <div class="dateLabel">
+                {{h.hour}}
+            </div>
+            <div class="iconSelected" *ngIf="h.selected"></div>
+        </div>
+    </div>
+</div>

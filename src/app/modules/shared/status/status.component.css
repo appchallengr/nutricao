@@ -1,0 +1,15 @@
+.statusOk{
+    color: #11934e;
+    position: relative;
+    margin: 0 auto;
+}
+
+.statusNOK{
+    color: #ff0000;
+    position: relative;
+    margin: 0 auto;
+}
+
+.containerIconStatus{
+    text-align: center;
+}

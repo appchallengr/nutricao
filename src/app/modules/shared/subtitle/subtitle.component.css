@@ -1,0 +1,10 @@
+.containerSubTitle{
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Gotham';
+    color: #0A3EAC;
+    font-size: 9px;
+    font-weight: bold;
+    padding-top: 10px;
+    min-height: 20px;
+}

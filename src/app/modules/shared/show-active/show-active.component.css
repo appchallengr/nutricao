@@ -1,0 +1,10 @@
+.labelInativos {
+  color: #858585;
+}
+
+.boxInativo {
+  float: right;
+  margin: 0 0 1.1rem 0;
+  margin-bottom: 0px;
+  font-size: 14px;
+}

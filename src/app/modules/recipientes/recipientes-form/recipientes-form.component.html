@@ -1,0 +1,32 @@
+<div class="contentPrescricao">
+
+    <app-title title="CADASTRO DE RECIPIENTES"></app-title>
+    <app-internal-subtitle [title]="acao"></app-internal-subtitle>
+
+    <div class="contentForm">
+        <app-error-msg-default (close)="closeError($event)" style="margin-top: 10px" *ngFor="let error of listErrors" [errorMessage]="error">
+        </app-error-msg-default>
+      <form [formGroup]="form" class="formBottom" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-12 resetBottom">
+            <app-input-text autoFocus=true label="Recipiente" required="true" [disabled]="acao == 'visualizar'" [(ngModel)]="item.nome"
+              formControlName="nome" maxlength="30" placeholder="Recipiente" >
+            </app-input-text>
+          </div>
+        </div>
+
+
+        <div class="d-flex justify-content-between mt-3">
+          <div>
+            <app-back-btn (click)="back()"></app-back-btn>
+          </div>
+          <div>
+            <app-clean-btn  *ngIf="acao != 'visualizar'" (click)="createForm()"></app-clean-btn>
+            <app-submit-btn *ngIf="!onlyView || acao == 'editar'" [disabled]="form.invalid || (acao == 'editar' && checkEqual())"></app-submit-btn>
+          </div>
+        </div>
+      </form>
+  
+    </div>
+  </div>
+  

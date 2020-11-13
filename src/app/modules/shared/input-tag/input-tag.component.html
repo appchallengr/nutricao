@@ -1,0 +1,28 @@
+<div class="form-group">
+    <label class="control-label labelInput">{{label}}<b class="required" *ngIf="required">*</b></label>
+    <tag-input *ngIf="uppercase" modelAsStrings="true" [disable]="disabled" 
+    [secondaryPlaceholder]="label" [(ngModel)]="value" (onTextChange)="textChange($event)"
+    class="form-control ng-pristine ng-valid ng-touched tagInput"
+    addOnBlur="true" (keydown)="keyPress($event)" [onAdding]="transform"
+    (onAdd)="onAdd($event)"
+    ></tag-input>
+    
+    <tag-input *ngIf="!uppercase" modelAsStrings="true" [disable]="disabled" 
+    [secondaryPlaceholder]="label" [(ngModel)]="value" (onTextChange)="textChange($event)"
+    class="form-control ng-pristine ng-valid ng-touched tagInput"
+    addOnBlur="true" (keydown)="keyPress($event)" 
+    (onAdd)="onAdd($event)"
+    ></tag-input>
+
+    <div class="alert alert-danger" *ngIf="errorLength">
+        É permitido no máximo {{maxlength}} caracteres
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMaxValue">
+        O valor máximo permitido é {{maxValue}}
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMinValue">
+        O valor minimo permitido é {{minValue}}
+    </div>
+ </div>   

@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  iris.nutricao.front:
+    image: hcrpimages.azurecr.io/nutricao-front:latest
+    build:
+      context: .
+      args:
+        env: homol
+      dockerfile: Dockerfile

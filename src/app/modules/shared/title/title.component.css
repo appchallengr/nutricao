@@ -1,0 +1,9 @@
+.titlePrescricao{
+    width: 100%;
+    float: left;
+    font-size: 28px;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #353636;
+}

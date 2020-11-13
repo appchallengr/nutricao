@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label class="control-label labelInput">
+      {{label}}
+      <b class="required" *ngIf="required">*</b>
+    </label>
+      <textarea *ngIf="autoFocus" appAutofocus class="form-control textarea" [maxlength]="maxlength" [(ngModel)]="value" rows="3" [disabled]="disabled"></textarea>
+      <textarea *ngIf="!autoFocus" class="form-control textarea" [maxlength]="maxlength" [(ngModel)]="value" rows="3" [disabled]="disabled"></textarea>
+  </div>
+  

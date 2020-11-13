@@ -1,0 +1,11 @@
+.required {
+  color: red;
+}
+
+.error{
+  border-color: #ff0000;
+}
+
+.errorMSG{
+  color: red;
+}

@@ -1,0 +1,23 @@
+<div class="pagination">
+  <div class="listRegister">
+    Mostrando de {{getFirstRecord()}} até {{lastRecordOnPage}} de {{totalRecords}} registros
+  </div>
+  <div class="actions">
+    <button class="btnPrev btnDefault" [disabled]="currentPage == 1" (click)="changePage(1)">
+      Primeiro
+    </button>
+    <button class="btnPrev btnDefault" [disabled]="currentPage == 1" (click)="changePage(currentPage - 1)">
+      Anterior
+    </button>
+    <button class="btnPagination btnDefault" (click)="changePage(page + 1)"
+      [class.activePage]="(page + 1) == currentPage" *ngFor="let page of listNumbers">
+      {{page + 1}}
+    </button>
+    <button class="btnNext btnDefault" [disabled]="totalPages  == currentPage" (click)="changePage(currentPage + 1)">
+      Próximo
+    </button>
+    <button class="btnPrev btnDefault" [disabled]="currentPage == totalPages" (click)="changePage(totalPages)">
+      Último
+    </button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.headerForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerForm div{
+    display: block;
+}

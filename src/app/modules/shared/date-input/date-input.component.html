@@ -1,0 +1,22 @@
+<div class="form-group">
+    <label class="control-label labelInput">{{label}}</label>
+  
+    <div class="input-group">
+      <input     
+          class="form-control" 
+          [(ngModel)]="value" 
+          [minDate]="minDate"
+          [maxDate]="maxDate"
+          [placeholder]="placeholder" 
+          ngbDatepicker
+          #d="ngbDatepicker" 
+          [readonly]="true"
+        >
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+          <i class="fas fa-calendar-alt"></i>
+        </button>
+      </div>
+    </div>
+  
+  </div>

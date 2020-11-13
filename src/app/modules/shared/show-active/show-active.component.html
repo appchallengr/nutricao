@@ -1,0 +1,8 @@
+
+<div class="boxInativo">
+    <label class="mr-1 mb-0 ng-star-inserted labelInativos">     
+        <span *ngIf="!title">Mostrar Inativos</span>
+        <span *ngIf="title">{{title}}</span>
+    </label>
+    <input type="checkbox" [(ngModel)]="value"/>
+</div>

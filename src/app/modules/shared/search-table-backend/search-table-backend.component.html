@@ -1,0 +1,7 @@
+<div class="containerSearch">
+    <label class="mr-1 mb-0 ng-star-inserted labelInativos">
+        Pesquisar
+    </label>
+    <input appAutofocus maxlength="40" [(ngModel)]="filtro" type="text" class="fix_color searchBackEnd" placeholder="Digite ao menos três caracteres" (keyup)="keyUp.next($event)"/>
+    <i class="fas fa-times clearInput" (click)="clearInput()" *ngIf="filtro.length > 0"></i>
+</div>

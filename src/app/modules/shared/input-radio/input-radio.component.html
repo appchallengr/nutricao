@@ -1,0 +1,9 @@
+<!--
+<div class="custom-control custom-control-inline">
+    <input type="radio" [value]="valor" [name]="name" [(ngModel)]="value">
+    <label >{{id}}</label>
+</div>-->
+<div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" [disabled]="disabled" [id]="for" [value]="valor" [name]="name" class="custom-control-input" [(ngModel)]="value">
+    <label class="custom-control-label" [for]="for">{{label}}</label>
+  </div>

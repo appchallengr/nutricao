@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: iris-<env2>
+  name: <appname>-svc
+  labels:
+    version: v1
+    app: <appname>-svc
+spec:
+  selector:
+    app: <appname>
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: <nodeport>
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: iris-<env2>
+  name: <appname>
+  labels:
+    ambiente: "tsbr<env>"
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      app: <appname>
+  template:
+    metadata:
+      labels:
+        app: <appname>
+    spec:
+      nodeName: <nodename>
+      containers:
+      - name: <appname>-cont
+        image: <image>
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        env:
+        - name: API_URL
+          value: <appname>-svc
+      hostAliases:
+      - ip: <aliasIp>
+        hostnames:
+        - <dns>         
+      imagePullSecrets:
+      - name: tsbr-credentials
+      nodeSelector:
+        ambiente: "tsbr<env>"

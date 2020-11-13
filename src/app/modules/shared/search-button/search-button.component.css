@@ -1,0 +1,13 @@
+.buttonCodeSearch{
+    background-color: #1d47db;
+    height: 40px;
+    width: 40px;
+    color: #FFF;
+    border: none;
+    border-radius: 6px;
+    border: 1px solid #1d47db;
+}
+
+.buttonCodeSearch:disabled{
+    opacity: 0.5;
+}

@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  nutricao.front.dev:
+    image: hcrpimages.azurecr.io/nutricao-front:dev
+    build:
+      context: .
+      args:
+        env: dev      
+      dockerfile: Dockerfile
+  nutricao.front.homol:
+    image: hcrpimages.azurecr.io/nutricao-front:homol
+    build:
+      context: .
+      args:
+        env: homol      
+      dockerfile: Dockerfile

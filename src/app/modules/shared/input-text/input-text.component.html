@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label class="control-label labelInput" *ngIf="label">
+    {{label}}
+    <b class="required" *ngIf="required && disabled == false">*</b>
+  </label>
+  <input type="text" *ngIf="autoFocus" [maxlength]="maxlength" class="form-control" type="text" [(ngModel)]="value"
+    [placeholder]="placeholder" appAutofocus [disabled]="disabled" [class.error]="error" /> 
+    <input type="text" *ngIf="!autoFocus" [maxlength]="maxlength" class="form-control" type="text" [(ngModel)]="value"
+    [placeholder]="placeholder" [disabled]="disabled" [class.error]="error"/> 
+  
+    <div class="errorMSG" *ngIf="errorMSG && error">
+      {{errorMSG}}
+    </div>
+</div>
+
+

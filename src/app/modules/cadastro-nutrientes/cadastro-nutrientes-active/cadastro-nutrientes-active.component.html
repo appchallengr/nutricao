@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h5 class="internal-modal-title">{{title}}</h5>
+    <button class="close" type="button" (click)="closeModal()"><span>×</span></button>
+  </div>
+  <div class="container-modal-dialog">
+    <form [formGroup]="prescricaoForm" (ngSubmit)="onSubmit()" class="formBottom">
+      <div class="row">
+        <div class="form-group col-12 ">
+          <app-input-text label="Nutriente" placeholder="Nutriente" disabled="true"
+            [(ngModel)]="nutriente" formControlName="nutriente"></app-input-text>
+  
+        </div>
+  
+        <div class="form-group col-12" style="margin-bottom: 0px;">
+          <app-text-area autoFocus=true [(ngModel)]="ativar.justificativa" formControlName="justificativa" label="Motivo"
+            placeholder="Motivo" maxlength="150"></app-text-area>
+  
+        </div>
+        <div class="spaceForms" style="text-align: right; font-size: 11px; margin-bottom: 10px; display: table;">
+          {{getLength()}} de 150 caracteres utilizados
+        </div>
+        <div class="spaceForms">
+          <button class="btn btn-danger mr-2" type="button" (click)="closeModal()">
+            <i class="fas fa-ban"></i>
+            Cancelar
+          </button>
+          <app-submit-btn [disabled]="prescricaoForm.invalid"></app-submit-btn>
+        </div>
+        <div class="modal-body text-center p-4">
+          
+        </div>
+  
+        <app-error-msg-default *ngFor="let error of listErrors" [errorMessage]="error"></app-error-msg-default>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,16 @@
+.editBTN{
+    width: 11px !important;
+}
+
+.btnClass{
+    padding: 0px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    width: 28px !important;
+    color: white;
+}
+
+
+.iconTable{
+    font-size: 11px;
+}

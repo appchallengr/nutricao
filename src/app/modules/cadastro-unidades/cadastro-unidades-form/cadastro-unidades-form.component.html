@@ -1,0 +1,48 @@
+<div class="contentPrescricao">
+    <div class="headerForm">
+      <div>
+        <app-title title="Unidade de Medida"></app-title>
+        <app-internal-subtitle [title]="acao"></app-internal-subtitle>
+      </div>
+      <div>
+        <app-clean-btn  *ngIf="acao != 'visualizar'" (click)="createForm()"></app-clean-btn>
+      </div>
+    </div>
+    
+    <div class="contentForm">
+        <app-error-msg-default (close)="closeError($event)" style="margin-top: 10px" *ngFor="let error of listErrors" [errorMessage]="error">
+        </app-error-msg-default>
+      <form [formGroup]="form" class="formBottom" (ngSubmit)="checkForm()">
+        <div class="row">
+          <div class="form-group col-6 resetBottom">
+            <app-input-text 
+              errorMSG="O Campo Unidade é Obrigatório"
+              [error]="errorUnidade && !unidades.unidade" autoFocus=true label="Unidade" required="true" [disabled]="acao == 'visualizar'" [(ngModel)]="unidades.unidade"
+              formControlName="unidade" maxlength="30" placeholder="Unidade">
+            </app-input-text>
+          </div>
+          <div class="form-group col-2 resetBottom">
+            <app-input-text 
+              errorMSG="O Campo Sigla é Obrigatório"
+              [error]="errorSigla && !unidades.sigla" label="Sigla" required="true" [disabled]="acao == 'visualizar'" [(ngModel)]="unidades.sigla"
+              formControlName="sigla" maxlength="15" placeholder="Sigla">
+            </app-input-text>
+          </div>
+        </div>
+
+
+        <div class="d-flex justify-content-between mt-3">
+          <div>
+            <app-back-btn (click)="back()"></app-back-btn>
+          </div>
+          <div>
+            
+            <app-submit-btn *ngIf="!onlyView || acao == 'editar'"></app-submit-btn>
+          </div>
+        </div>
+      </form>
+      
+  
+    </div>
+  </div>
+  

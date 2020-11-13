@@ -1,0 +1,31 @@
+.containerSearch {
+    float: right;
+    clear: right;
+    position: relative;
+  }
+  
+  .labelInativos {
+    color: #858585;
+    font-size: 14px;
+  }
+  
+  .fix_color {
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    color: #495057;
+  }
+  
+  .searchBackEnd{
+    font-size: 14px;
+    width: 230px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+
+  .clearInput{
+    position: absolute;
+    right: 7px;
+    font-size: 11px;
+    top: 8px;
+    cursor: pointer;
+  }

@@ -1,0 +1,23 @@
+export const environment = {
+  production: false,
+  defaultLocale: 'pt',
+  API_URL: 'http://tsbririsdev.com.br/nutricao-api/v1',
+  INTEGRACAO_URL: 'http://tsbririsdev.com.br/integracaolegado-api',
+  HC_URL: 'http://tsbririsdev.com.br/nutricaohc-api',
+  urlPoliticas: 'http://tsbririsdev.com.br/sso-api/usuario/policies?intitutoId=',
+  IrisIntegracaoPrescricao: 'http://10.165.101.19/hml/IrisIntegracaoPrescricao',
+  urlMenuApi: 'http://tsbririsdev.com.br',
+  urlMenu: 'http://tsbririsdev.com.br',
+  RouteDefaultPage: '/menu',
+  sessionStorageToken: 'access_token_iris',
+  sessionHCToken: 'hc-token',
+  authIssuer: 'http://tsbririsdev.com.br/ssoserver',
+  authClientId: 'IRIS.Menu.Frontend',
+  authRedirectUri: 'http://tsbririsdev.com.br/nutricao-api/signin-oidc',
+  authPostLogoutRedirectUri: 'http://tsbririsdev.com.br/signout',
+  urlChangePassword: "http://tsbririsdev.com.br/change-password",
+  mock: false,
+  target: 'http://tsbririsdev.com.br/nutricao-api',
+  modalWidth: '900px',
+  authScope: 'offline_access openid profile email IRIS.SSO.Integration.Api IRIS.Menu.Api IRIS.MidiaSocial.Api IRIS.Portaria.Api IRIS.TI.Api IRIS.Guarita.Api IRIS.Prescricao.Api IRIS.ControleLeito.Api IRIS.Recepcao.Api IRIS.PEP.Api IRIS.Nutricao.Api'
+}

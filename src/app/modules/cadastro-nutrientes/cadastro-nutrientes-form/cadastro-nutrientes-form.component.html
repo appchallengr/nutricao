@@ -1,0 +1,86 @@
+<div class="contentPrescricao">
+    <div class="headerForm">
+      <div>
+        <app-title title="Nutriente - Terapia Nutricional"></app-title>
+        <app-internal-subtitle [title]="acao"></app-internal-subtitle>
+      </div>
+      <div>
+        <app-clean-btn  *ngIf="acao != 'visualizar'" (click)="createForm()"></app-clean-btn>
+      </div>
+    </div>
+    
+    <div class="contentForm">
+        <app-error-msg-default (close)="closeError($event)" style="margin-top: 10px" *ngFor="let error of listErrors" [errorMessage]="error">
+        </app-error-msg-default>
+      <form [formGroup]="form" class="formBottom" (ngSubmit)="checkForm()">
+        <div class="row">
+          <div class="form-group col-6 resetBottom">
+            <app-input-text 
+              errorMSG="O Campo Nutriente é Obrigatório"
+              [error]="errorNutriente && !nutrientes.nutriente" autoFocus=true 
+              label="Nutriente" required="true" 
+              [disabled]="acao == 'visualizar'" [(ngModel)]="nutrientes.nutriente"
+              formControlName="nutriente" maxlength="50" placeholder="Nutriente">
+            </app-input-text>
+          </div>
+          <div class="form-group col-2 resetBottom" *ngIf="acao != 'visualizar'">
+
+            <label class="">Sigla Unidade<b class="required">*</b></label>
+         
+                <ng-select [items]="siglasList$ "
+           bindLabel="sigla"
+           formControlName="sigla"
+           bindValue="id"
+           [(ngModel)]="nutrientes.unidadeId"></ng-select>
+            <div class="errorMSG" *ngIf="errorSigla">
+              O Campo Sigla é Obrigatório
+            </div>
+          </div>
+
+          
+
+          <div class="form-group col-2 resetBottom" *ngIf="acao == 'visualizar'">
+            <label class="">Sigla Unidade</label>
+            <input formControlName="sigla" disabled="disabled" 
+                [value]="nutrientes.siglaUnidadeMedida" class="form-control" />
+
+          </div>
+
+          <div class="form-group col-6 resetBottom" >
+            <label *ngIf="acao == 'visualizar'">Fontes do Nutriente</label>
+            <app-input-text label="Fontes do Nutriente" *ngIf="acao != 'visualizar'" [disabled]="acao == 'visualizar'" [(ngModel)]="fontesNutriente"
+              formControlName="fontesNutriente" maxlength="60" placeholder="Fontes do Nutriente">
+            </app-input-text>
+          </div>
+          
+          <div class="form-group col-2" *ngIf="acao != 'visualizar'">
+            <button type="button" class="btn btn-info" (click)="adicionarFonte()" style="margin-top: 30px;">Adicionar</button>
+          </div>
+
+          <div class="listFontes" >
+            <div class="form-group col-6 resetBottom" style="max-height: 250px;
+            overflow-x: scroll;
+            overflow-x: hidden;">
+              <div class="rowFonte" *ngFor="let item of listFontes">
+                <div>{{item.nome}}</div>
+                <i *ngIf="acao != 'visualizar'" class="fas fa-trash-alt trashIcon" matTooltip="Remover" (click)="remover(item.nome)"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+          <div>
+            <app-back-btn (click)="back()"></app-back-btn>
+          </div>
+          <div>
+            
+            <app-submit-btn *ngIf="!onlyView || acao == 'editar'"></app-submit-btn>
+          </div>
+        </div>
+      </form>
+      
+  
+    </div>
+  </div>
+  

@@ -1,0 +1,96 @@
+#scroller-wrapper {
+    height: 160px;
+    width: 100%;
+    position: relative;
+    overflow-x: scroll;
+}
+
+#scroller {
+    position: absolute;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.elem {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    width: auto;
+    display: inline-block;
+}
+
+.blockHour{
+    display: inline-block;
+    width: 100px;
+    border-top: 1px solid #d2d1d8;
+    border-bottom: 1px solid #d2d1d8;
+    border-right: 1px dotted #d2d1d8;
+    height: 80px;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    cursor: pointer;
+    background: rgba(243,243,243,1);
+    background: -moz-linear-gradient(top, rgba(243,243,243,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(243,243,243,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(243,243,243,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(243,243,243,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(243,243,243,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(243,243,243,1) 0%, rgba(246,246,246,1) 47%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#ffffff', GradientType=0 );
+}
+
+.dateLabel{
+    width: 100%;
+    margin-top: -30px;
+}
+
+.iconSelected{
+    width: 26px;
+    height: 22px;
+    background-image: url(../../../../assets/img/iconSelected.jpg);
+    position: absolute;
+    left: 50%;
+    margin-left: -13px;
+    top: 50%;
+    margin-top: -11px;
+    z-index: 99999;
+}
+
+.keyRow{
+    text-align: center;
+    color: #7d7d7d;
+    font-family: 'Gotham';
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.dateLabel{
+    font-family: 'Gotham';
+    font-size: 11px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* width */
+#scroller-wrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+  
+  /* Track */
+#scroller-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+  /* Handle */
+#scroller-wrapper::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px;
+}
+  
+  /* Handle on hover */
+#scroller-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

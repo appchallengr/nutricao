@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h5 class="internal-modal-title">{{title}}</h5>
+    <button class="close" type="button" (click)="closeModal()"><span>×</span></button>
+  </div>
+  <div class="container-modal-dialog">
+    <form [formGroup]="prescricaoForm" (ngSubmit)="onSubmit()" class="formBottom">
+      <div class="row">
+        <div class="form-group col-12 ">
+          <app-input-text label="Justificativa" placeholder="Justificativa" disabled="true"
+            [(ngModel)]="nome" formControlName="nome"></app-input-text>
+  
+        </div>
+  
+        <div class="form-group col-12 ">
+          <app-text-area [(ngModel)]="ativar.justificativa" formControlName="justificativa" label="Motivo"
+            placeholder="Motivo" maxlength="120"></app-text-area>
+  
+        </div>
+  
+        <div class="modal-body text-center p-4">
+          <button class="btn btn-secondary mr-2" type="button" (click)="closeModal()">
+            <i class="fas fa-times"></i>
+            Cancelar
+          </button>
+          <app-submit-btn [disabled]="prescricaoForm.invalid"></app-submit-btn>
+        </div>
+  
+        <app-error-msg-default *ngFor="let error of listErrors" [errorMessage]="error"></app-error-msg-default>
+      </div>
+    </form>
+  </div>
+  

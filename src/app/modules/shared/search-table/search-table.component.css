@@ -1,0 +1,15 @@
+.containerSearch {
+  float: right;
+  clear: right;
+}
+
+.labelInativos {
+  color: #858585;
+  font-size: 14px;
+}
+
+.fix_color {
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  color: #495057;
+}

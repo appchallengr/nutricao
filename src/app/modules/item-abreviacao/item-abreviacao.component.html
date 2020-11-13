@@ -1,0 +1,68 @@
+<div class="contentPrescricao">
+  <app-title title="Cadastro de Item Abreviação de Jejum"></app-title>
+
+  <div class="alert alert-success alert-dismissible alertGrid" role="alert" *ngIf="success || updated">
+    {{ success ? 'Inclusão realizada com sucesso' : 'Alteração realizada com sucesso'}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="alert alert-success alert-dismissible alertGrid" role="alert" *ngIf="ativo || inativo">
+    {{ ativo ? 'Ativação realizada com sucesso' : 'Inativação realizada com sucesso'}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="containerButtons">
+    <div class="left">
+      <div class="actions">
+        <app-add-button   matTooltip="Incluir" routerLink="/item-abreviacao/novo"></app-add-button>
+        <app-export-btn matTooltip="Exportar" (click)="exportExcel()"></app-export-btn>
+      </div>
+      <app-results-page [(ngModel)]="inputResult" (ngModelChange)="onChangeNumber($event)"></app-results-page>
+    </div>
+    <div class="right">
+      <app-show-active [(ngModel)]="showActive" #inputEl (change)="changeStatus($event)"></app-show-active>
+      <!-- <app-search-table [(ngModel)]="searchValue" (changeValue)="changeValue($event)"></app-search-table> -->
+      <app-search-table-backend (filtroChanged)="filtrar($event)"></app-search-table-backend>
+    </div>
+  </div>
+
+  <table
+    class="table table-striped table-bordered table-hover table-full-width no-footer dataTable dtr-inline tableGuarita">
+    <thead>
+      <th *ngFor="let column of columns" class="thGrid sortDesc" (click)="clickTH(column.field)"
+        [class.sorting]=column.sort [class.sorting_desc]=column.sortDesc [class.sorting_asc]=column.sortAsc>
+        {{column.name}}
+      </th>
+      <th class="thGrid" style="width: 135px" >Ação</th>
+    </thead>
+    <tbody *ngIf="loading && loadingApi == false">
+      <tr *ngFor="let result of getListFilter() ; last as isLast" class="trTable">
+        <td class="tdTable" [matTooltip]="result.nome">
+          {{result.nome}}
+        </td>
+        <td style="display: flex; justify-content: center;" >
+          <app-edit-btn *ngIf="!showActive" routerLink="/item-abreviacao/editar/{{result.id}}"></app-edit-btn>
+          <app-view-btn  routerLink="/item-abreviacao/visualizar/{{result.id}}"></app-view-btn>
+          <app-active-btn  (click)="activate(result)" [activate]=showActive ></app-active-btn>
+          <app-historic-button (click)="historic(result)" ></app-historic-button>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="loadingApi == true">
+      <tr>
+        <td colspan="3">
+          <app-loading-mini></app-loading-mini>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-pagination *ngIf="loading && loadingApi == false" [totalPages]="totalPages" [firstRecordOnPage]="firstRecordOnPage"
+    [lastRecordOnPage]="lastRecordOnPage" [totalRecords]="totalRecords" (changePageNumber)="changePageNumber($event)"
+    [currentPage]="currentPage">
+  </app-pagination>
+</div>
